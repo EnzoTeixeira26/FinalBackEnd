@@ -1,0 +1,35 @@
+create table Curso(
+	id serial,
+	descricao varchar(255),
+	PRIMARY KEY (id)
+);
+
+create table Semestre(
+	id serial,
+	descricao varchar(255),
+	numero int,
+	PRIMARY KEY (id)
+);
+create table Disciplina(
+	id serial,
+	codigo varchar(255),
+	nome varchar(255),
+	nucleo varchar(15),
+	chats_pratica int,
+	chats_teorica int,
+	chats_distancia int,
+	chts_pratica float,
+	chts_teorica float,
+	chts_distancia float,
+	PRIMARY KEY (id)
+);
+create table Vinculo(
+	id serial,
+	idCurso int,
+	idSemestre int,
+	idDisciplina int,
+	PRIMARY KEY (id),
+	FOREIGN KEY (idCurso) REFERENCES Curso(id),
+	FOREIGN KEY (idSemestre) REFERENCES Semestre(id),
+	FOREIGN KEY (idDisciplina) REFERENCES Disciplina(id)
+);
